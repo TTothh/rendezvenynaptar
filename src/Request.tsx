@@ -5,6 +5,7 @@ interface RequestProps {
 }
 
 function Request({url}: RequestProps) {
+	console.log(Requester(url));
 	return (
 		<>
 			<pre>{Requester(url)}</pre>
