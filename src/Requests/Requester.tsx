@@ -1,16 +1,14 @@
-import {useState} from "react";
-
-function Requester(url: string | undefined): string {
+function Requester(url: string | undefined): Document {
 	const uri: string = "http://localhost:8080/" + url;
-	const [response, setResponse] = useState("");
+	const htmlParser = new DOMParser();
+	let response = new Document();
 
-	const x = new XMLHttpRequest();
-	x.open("GET", uri)
-	x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	x.send(null);
-	x.onload = x.onerror = function() {
-		setResponse(x.responseText);
-		console.log(response);
+	const xhr = new XMLHttpRequest();
+	xhr.open("GET", uri)
+	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	xhr.send(null);
+	xhr.onload = xhr.onerror = function() {
+		response = htmlParser.parseFromString(xhr.responseText, "text/html");
 	};
 
 	return response;
