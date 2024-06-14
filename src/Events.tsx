@@ -5,7 +5,7 @@ import {useState} from "react";
 
 function Events() {
 	let events = new Array<Concert>();
-	let [eventsFilterd, setEventsFiltered] = useState();
+	let [eventsFiltered, setEventsFiltered] = useState(new Array<Concert>);
 	
 	events.push(...A38(Requester("https://www.a38.hu/hu/programok")));
 	
