@@ -11,7 +11,7 @@ function Events() {
 	
 	return (
 		<>
-			{eventsFilterd.map(x => x.html)};
+			{eventsFiltered.map(x => x.html)};
 		</>
 	)
 }
