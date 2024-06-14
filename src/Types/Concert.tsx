@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import React, {ReactNode} from "react";
 
 class Concert implements Concert {
 	private _name: string;
@@ -6,8 +6,8 @@ class Concert implements Concert {
 	private _room: string | undefined;
 	private _genres: Array<string>;
 	private _description: string | undefined;
-	private _html: ReactElement | undefined;
 	private _link: string | undefined;
+	private _html: ReactNode;
 	
 	constructor(name: string, date: Date, genres: Array<string>, room?: string, description?: string, link?: string) {
 		this._name = name;
@@ -18,20 +18,17 @@ class Concert implements Concert {
 		this._link = link;
 	};
 	
+	get html(): React.ReactNode {
+		//build html here
+		return this._html;
+	}
+	
 	get link(): string | undefined {
 		return this._link;
 	}
 	
 	set link(value: string | undefined) {
 		this._link = value;
-	}
-	
-	get html(): ReactElement | undefined {
-		return this._html;
-	}
-	
-	set html(value: JSX.Element | undefined) {
-		this._html = value;
 	}
 	
 	get name(): string {

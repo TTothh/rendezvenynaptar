@@ -1,3 +1,5 @@
+//makes the request to a site and returns a Document type
+
 function Requester(url: string | undefined): Document {
 	const uri: string = "http://localhost:8080/" + url;
 	const htmlParser = new DOMParser();
