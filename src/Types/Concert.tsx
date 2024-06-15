@@ -7,16 +7,17 @@ class Concert implements Concert {
 	private _genres: Array<string>;
 	private _description: string | undefined;
 	private _link: string | undefined;
-	private _html: ReactNode;
+	private readonly _html: ReactNode;
 	
-	constructor(name: string, date: Date, genres: Array<string>, room?: string, description?: string, link?: string) {
+	constructor(name: string, date: Date, genres: Array<string>, html: ReactNode, room?: string, description?: string, link?: string) {
 		this._name = name;
 		this._date = date;
+		this._html = html;
 		this._room = room;
 		this._genres = genres;
 		this._description = description;
 		this._link = link;
-	};
+	}
 	
 	get html(): React.ReactNode {
 		//build html here
