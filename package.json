@@ -10,10 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uidotdev/usehooks": "^2.4.1-experimental.1",
-    "cors-anywhere": "^0.4.4",
-    "react": "^0.0.0-experimental-fb9a90fa48-20240614",
-    "react-dom": "^0.0.0-experimental-fb9a90fa48-20240614"
+    "cors-anywhere": "^0.4.4"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.6",
