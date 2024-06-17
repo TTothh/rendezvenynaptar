@@ -10,15 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uidotdev/usehooks": "^2.4.1-experimental.1",
     "cors-anywhere": "^0.4.4",
     "react": "^0.0.0-experimental-fb9a90fa48-20240614",
-    "react-dom": "^0.0.0-experimental-fb9a90fa48-20240614"
+    "react-dom": "^0.0.0-experimental-fb9a90fa48-20240614",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.6",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

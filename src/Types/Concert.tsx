@@ -1,6 +1,8 @@
 import React, {ReactNode} from "react";
 
-class Concert implements Concert {
+class Concert {
+	public key: string
+	
 	private _name: string;
 	private _date: Date;
 	private _room: string | undefined;
@@ -9,7 +11,7 @@ class Concert implements Concert {
 	private _link: string | undefined;
 	private readonly _html: ReactNode;
 	
-	constructor(name: string, date: Date, genres: Array<string>, html: ReactNode, room?: string, description?: string, link?: string) {
+	constructor(name: string, date: Date, genres: Array<string>, html: ReactNode, key: string, room?: string, description?: string, link?: string) {
 		this._name = name;
 		this._date = date;
 		this._html = html;
@@ -17,6 +19,7 @@ class Concert implements Concert {
 		this._genres = genres;
 		this._description = description;
 		this._link = link;
+		this.key = key;
 	}
 	
 	get html(): React.ReactNode {
