@@ -1,7 +1,7 @@
 import {ReactNode, useEffect, useState} from "react";
 import Concert from "./Types/Concert.tsx";
-import A38 from "./Connectors/A38.tsx";
-import Akvariumklub from "./Connectors/Akvariumklub.tsx";
+//import A38 from "./Connectors/A38.tsx";
+//import Akvariumklub from "./Connectors/Akvariumklub.tsx";
 import Durerkert from "./Connectors/Durerkert.tsx";
 
 function Events(): ReactNode {
@@ -24,9 +24,9 @@ function Events(): ReactNode {
 	
 	let isLoading = false;
 	
-	Fetch("www.a38.hu/hu/programok", A38);
-	Fetch("akvariumklub.hu/programok", Akvariumklub);
-	Fetch("akvariumklub.hu/programok", Durerkert);
+	//Fetch("www.a38.hu/hu/programok", A38);
+	//Fetch("akvariumklub.hu/programok", Akvariumklub);
+	Fetch("https://www.durerkert.com/events", Durerkert);
 	
 	isLoading = true;
 	

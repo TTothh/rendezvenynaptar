@@ -8,17 +8,16 @@ function Akvariumklub(html: Document): Array<Concert> {
 	const eventsDOM = html.getElementsByClassName("grid-item");
 	
 	for (const event of eventsDOM) {
-		const link = event.getAttribute("href") ?? "";
+		const link: string = event.getAttribute("href") ?? "";
 		const date: Date = new Date;
 		const banner: URL = new URL((event.querySelector(".ofi-cover-center") as HTMLImageElement)?.getAttribute("data-lazy-src")?.trim() ?? "https://akvariumklub.hu/programok/");
-		console.log(event.querySelector(".ofi-cover-center"))
-		const month = event.querySelector(".date__month")?.innerHTML.toLowerCase().replace(/[0-9]/g, "").replace(/\./g,"").trim() ?? "január";
-		const day = event.querySelector(".date__day")?.innerHTML.replace(".", "").trim() ?? "";
+		const month: string = event.querySelector(".date__month")?.innerHTML.toLowerCase().replace(/[0-9]/g, "").replace(/\./g,"").trim() ?? "január";
+		const day: string = event.querySelector(".date__day")?.innerHTML.replace(".", "").trim() ?? "";
 		date.setFullYear((new Date).getFullYear(), Months(month) ?? 1, parseInt(day) ?? 1);
-		const name = (event.querySelector(".m-card__description")?.children[0] as HTMLHeadingElement).innerText.replace("\\n", "").trim() ?? "Koncert";
-		const room = event.classList[event.classList.length - 1].toString().trim();
+		const name: string = (event.querySelector(".m-card__description")?.children[0] as HTMLHeadingElement).innerText.replace("\\n", "").trim() ?? "Koncert";
+		const room: string = event.classList[event.classList.length - 1].toString().trim();
 		const genres: Array<string> = new Array<string>;
-		const desc = "";
+		const desc: string = "";
 		
 		const html = <>
 			<div className="eventCard" key={uuidv4()}>

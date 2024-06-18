@@ -10,7 +10,7 @@ function A38(html: Document): Array<Concert> {
 	for (const event of eventsDOM) {
 		const link = event.getAttribute("href") ?? "";
 		const date: Date = new Date;
-		const banner: URL = new URL((event.querySelector(".artistCard__img") as HTMLImageElement)?.getAttribute("data-src")?.trim() ?? "https://www.a38.hu/hu/programok");
+		const banner: URL = new URL((event.querySelector(".artistCard__img") as HTMLImageElement)?.getAttribute("data-src")?.trim() ?? "../../src/assets/Placeholder/a38.png");
 		const month = event.querySelector(".l-verticalCenter")?.children[0].innerHTML.toLowerCase().trim() ?? "január";
 		const day = event.querySelector(".dateBox-item-day")?.innerHTML ?? "";
 		date.setFullYear((new Date).getFullYear(), Months(month) ?? 1, parseInt(day) ?? 1);
