@@ -1,7 +1,6 @@
 import Concert from "../Types/Concert.tsx";
 import {v4 as uuidv4} from 'uuid';
 import {useEffect, useState} from "react";
-import puppeteer, {Puppeteer} from "puppeteer";
 
 // @ts-ignore
 function Durerkert(html: Document): Array<Concert> {
@@ -9,18 +8,21 @@ function Durerkert(html: Document): Array<Concert> {
 	
 	const Fetch = (url: string, handler: (d: Document) => Array<Concert>) => {
 		//rewrite this for puppeteer, wait for load and then pass the handler the loaded doc
-		const reverseProxyUrl: string = "http://localhost:8080/";
+		//const reverseProxyUrl: string = "http://localhost:8080/";
 		const [doc, setDoc] = useState(new Document());
 		useEffect(() => {
-			const pup = new Puppeteer();
-			
+			fetch(`http://localhost:4000/screenshot?url=${url}?selector=".dxGKyk"`)
+				.then(response => response.text())
+				.then(data => {
+					setDoc(new DOMParser().parseFromString(data, "text/html"))
+				});
 		}, [url]);
 		events.push(...handler(doc));
 	}
 	
 	function getEvents(html: Document): Array<Concert> {
 		const monthlyEvents = new Array<Concert>();
-		const eventsDOM = html.getElementsByClassName("dxGKyk");    
+		const eventsDOM = html.getElementsByClassName("dxGKyk");
 		console.log(html)
 		for (const event of eventsDOM) {
 			const link: string = (event.querySelector(".ihPYiO")?.children[0] as HTMLAnchorElement).href ?? "";
