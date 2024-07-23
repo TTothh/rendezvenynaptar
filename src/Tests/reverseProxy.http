@@ -1,8 +1,7 @@
 ### GET request from reverseproxy
-GET http://localhost:8080/
-X-Requested-With: XMLHttpRequest
+GET https://localhost:7198/api/Genres
 
 ### GET request from reverseproxied URL
-GET http://localhost:8080/www.a38.hu/hu/programok
+GET https://localhost:7198/api/Events
 X-Requested-With: XMLHttpRequest
 ####

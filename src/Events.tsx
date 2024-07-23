@@ -1,45 +1,59 @@
-import {ReactNode, useEffect, useState} from "react";
-import Concert from "./Types/Concert.tsx";
-import A38 from "./Connectors/A38.tsx";
-import Akvariumklub from "./Connectors/Akvariumklub.tsx";
-import Durerkert from "./Connectors/Durerkert.tsx";
+import {useEffect, useState} from "react";
 
-function Events(): ReactNode {
-	const events = new Array<Concert>();
+interface Concert {
+	id: number;
+	name: string;
+	date: string;
+	genre: string;
+}
+
+interface Genre {
+	id: number;
+	name: string;
+}
+
+const Events = () => {
+	const [data, setData] = useState<Concert[]>([]);
+	const [genres, setGenres] = useState<Genre[]>([]);
+	const [error, setError] = useState<string | null>(null);
 	
-	const Fetch = (url: string, handler: (d: Document) => Array<Concert>) => {
-		const reverseProxyUrl = "http://localhost:8080/";
-		const [doc, setDoc] = useState(new Document());
-		useEffect(() => {
-			fetch(reverseProxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}})
-				.then(response => response.text())
-				.then(data => {
-					setDoc(new DOMParser().parseFromString(data, "text/html"))
-				});
-		}, [url]);
-		
-		events.push(...handler(doc));
-		return events;
+	useEffect(() => {
+		const getData = async () => {
+			try {
+				const response = await fetch("https://127.0.0.1:7198/api/Events", { method: "GET" });
+				if (!response.ok) {
+					throw new Error("Failed to fetch events");
+				}
+				const data = await response.json();
+				setData(data);
+			} catch (error) {
+				setError((error as Error).message);
+			}
+		};
+		getData();
+	}, []);
+	
+	useEffect(() => {
+		const getGenres = async () => {
+			try {
+				const response = await fetch("https://127.0.0.1:7198/api/Genres", { method: "GET" });
+				if (!response.ok) {
+					throw new Error("Failed to fetch genres");
+				}
+				const genres = await response.json();
+				setGenres(genres);
+			} catch (error) {
+				setError((error as Error).message);
+			}
+		};
+		getGenres();
+	}, []);
+	
+	if (error) {
+		return <div>Error: {error}</div>;
 	}
 	
-	let isLoading = false;
-	
-	Fetch("www.a38.hu/hu/programok", A38);
-	Fetch("akvariumklub.hu/programok", Akvariumklub);
-	Fetch("akvariumklub.hu/programok", Durerkert);
-	
-	isLoading = true;
-	
-	if(!isLoading) {
-		return "Loading...";
-	} else {
-		return <>
-			{events
-				.sort((a,b) => a.date.valueOf() - b.date.valueOf())
-				.map(x => x.html)}
-		</>
-	}
-	
+	return [data, genres];
 }
 
 export default Events
