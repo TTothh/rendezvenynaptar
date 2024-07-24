@@ -30,6 +30,8 @@ $width: 250px;
 .eventBannerBackDrop {
 	width: $width;
 	height: $width;
+	min-width: $width;
+	min-height: $width;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
