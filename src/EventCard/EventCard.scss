@@ -1,0 +1,41 @@
+$width: 250px;
+
+.eventCard {
+	width: $width;
+	height: $width * 2;
+	display: inline-block;
+	margin: 20px;
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: 0px 0px 20px -3px rgba(84,84,84,1);
+}
+.eventBannerContainer {
+	overflow: hidden;
+	width: $width;
+	height: $width;
+	display: flex;
+}
+
+.eventBanner {
+	max-height: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	object-fit: cover;
+	position: relative;
+	align-self: center;
+	z-index: 10;
+	left: -100%;
+}
+
+.eventBannerBackDrop {
+	width: $width;
+	height: $width;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	display: flex;
+	z-index: 0;
+	position: relative;
+	filter: blur(10px);
+}

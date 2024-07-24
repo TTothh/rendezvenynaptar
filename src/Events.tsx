@@ -1,19 +1,9 @@
 import {useEffect, useState} from "react";
+import RenderEvents from "./RenderEvents.tsx";
+import {Event, Genre} from './Interfaces/Interfaces.tsx';
 
-interface Concert {
-	id: number;
-	name: string;
-	date: string;
-	genre: string;
-}
-
-interface Genre {
-	id: number;
-	name: string;
-}
-
-const Events = () => {
-	const [data, setData] = useState<Concert[]>([]);
+function Events() {
+	const [events, setEvents] = useState<Event[]>([]);
 	const [genres, setGenres] = useState<Genre[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	
@@ -25,7 +15,7 @@ const Events = () => {
 					throw new Error("Failed to fetch events");
 				}
 				const data = await response.json();
-				setData(data);
+				setEvents(data);
 			} catch (error) {
 				setError((error as Error).message);
 			}
@@ -53,7 +43,9 @@ const Events = () => {
 		return <div>Error: {error}</div>;
 	}
 	
-	return [data, genres];
+	return (
+		<RenderEvents Events={events} Genres={genres} />
+	);
 }
 
 export default Events

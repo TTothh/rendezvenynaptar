@@ -1,0 +1,42 @@
+.eventCard {
+  width: 250px;
+  height: 500px;
+  display: inline-block;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px -3px rgb(84, 84, 84);
+}
+
+.eventBannerContainer {
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  display: flex;
+}
+
+.eventBanner {
+  max-height: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  position: relative;
+  align-self: center;
+  z-index: 10;
+  left: -100%;
+}
+
+.eventBannerBackDrop {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  display: flex;
+  z-index: 0;
+  position: relative;
+  filter: blur(10px);
+}
+
+/*# sourceMappingURL=EventCard.css.map */
