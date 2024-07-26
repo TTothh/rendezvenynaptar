@@ -41,4 +41,28 @@
   filter: blur(10px);
 }
 
+.eventGenre {
+  margin: 0 5px 0 2px;
+}
+
+.venue {
+  filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+}
+
+.eventMisc {
+  bottom: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.eventGenres {
+  margin: 5px;
+}
+
+.eventVenueInfo {
+  margin: 5px;
+}
+
 /*# sourceMappingURL=EventCard.css.map */
