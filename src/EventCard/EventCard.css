@@ -23,19 +23,16 @@
   position: relative;
   align-self: center;
   z-index: 10;
-  left: -100%;
+  left: -275px;
 }
 
 .eventBannerBackDrop {
-  width: 250px;
-  height: 250px;
-  min-width: 250px;
-  min-height: 250px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  display: flex;
+  top: -5%;
+  left: -5%;
+  width: 275px;
+  height: 275px;
+  min-width: 275px;
+  min-height: 275px;
   z-index: 0;
   position: relative;
   filter: blur(10px);
@@ -43,26 +40,59 @@
 
 .eventGenre {
   margin: 0 5px 0 2px;
-}
-
-.venue {
-  filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .eventMisc {
   bottom: 0;
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
 }
 
 .eventGenres {
   margin: 5px;
+  display: grid;
+  max-width: 70%;
+}
+
+.eventVenue {
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  margin: auto;
+}
+
+.venue {
+  filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+  width: 32px;
+  height: 32px;
 }
 
 .eventVenueInfo {
   margin: 5px;
+  width: 30%;
+}
+
+.eventRoom {
+  position: absolute;
+  right: 0;
+}
+
+.eventDateTime {
+  display: grid;
+}
+
+.eventDate {
+  margin: 2px;
+}
+
+.eventTime {
+  margin: 2px;
 }
 
 /*# sourceMappingURL=EventCard.css.map */

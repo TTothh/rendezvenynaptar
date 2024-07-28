@@ -24,19 +24,21 @@ $width: 250px;
 	position: relative;
 	align-self: center;
 	z-index: 10;
-	left: -100%;
+	left: $width * -1.1;
 }
 
 .eventBannerBackDrop {
-	width: $width;
-	height: $width;
-	min-width: $width;
-	min-height: $width;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-origin: content-box;
-	display: flex;
+	top: -5%;
+	left: -5%;
+	width: $width * 1.1;
+	height: $width * 1.1;
+	min-width: $width * 1.1;
+	min-height: $width * 1.1;
+	//background-size: cover;
+	//background-position: center;
+	//background-repeat: no-repeat;
+	//background-origin: content-box;
+	//display: flex;
 	z-index: 0;
 	position: relative;
 	filter: blur(10px);
@@ -44,24 +46,57 @@ $width: 250px;
 
 .eventGenre {
 	margin: 0 5px 0 2px;
-}
-
-.venue {
-	filter: drop-shadow(0px 0px 2px rgba(0,0,0,1));
+	min-width: 0;
+	min-height: 0;
+	flex: 1 1 auto;
 }
 
 .eventMisc {
 	bottom: 0;
-	position: relative;
+	position: absolute;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	width: 100%;
 }
 
 .eventGenres {
 	margin: 5px;
+	display: grid;
+	max-width: 70%;
+}
+
+.eventVenue {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	margin: auto;
+}
+
+.venue {
+	filter: drop-shadow(0px 0px 2px rgba(0,0,0,1));
+	width: 32px;
+	height: 32px;
 }
 
 .eventVenueInfo {
 	margin: 5px;
+	width: 30%;
+}
+
+.eventRoom {
+	position: absolute;
+	right: 0;
+}
+
+.eventDateTime {
+	display: grid;
+}
+
+.eventDate {
+	margin: 2px;
+}
+
+.eventTime {
+	margin: 2px;
 }

@@ -11,7 +11,7 @@ function Venues(m: string): string {
 	
 	function getVenue(m: string): string {
 		for (const mKey of keys) {
-			if(mKey[0].includes(m)) {
+			if(mKey[0] == m) {
 				return mKey[1] as string;
 			}
 		}

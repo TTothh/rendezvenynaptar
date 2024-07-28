@@ -6,7 +6,8 @@ export interface Event {
 	room?: string,
 	description?: string,
 	url: string,
-	coverUrl?: string
+	coverUrl?: string,
+	venue?: string
 }
 
 export interface Genre {
